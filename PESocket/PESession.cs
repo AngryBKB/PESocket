@@ -14,7 +14,7 @@ namespace PENet {
         private Socket skt;
         private Action closeCB;
 
-        #region Recevie
+        #region Receive
         public void StartRcvData(Socket skt, Action closeCB) {
             try {
                 this.skt = skt;
@@ -92,9 +92,9 @@ namespace PENet {
                     }
                     else {
                         T msg = PETool.DeSerialize<T>(pack.bodyBuff);
-                        OnReciveMsg(msg);
+                        OnReceiveMsg(msg);
 
-                        //loop recive
+                        //loop receive
                         pack.ResetData();
                         skt.BeginReceive(
                             pack.headBuff,
@@ -173,13 +173,13 @@ namespace PENet {
         /// Connect network
         /// </summary>
         protected virtual void OnConnected() {
-            PETool.LogMsg("New Seesion Connected.", LogLevel.Info);
+            PETool.LogMsg("New Session Connected.", LogLevel.Info);
         }
 
         /// <summary>
         /// Receive network message
         /// </summary>
-        protected virtual void OnReciveMsg(T msg) {
+        protected virtual void OnReceiveMsg(T msg) {
             PETool.LogMsg("Receive Network Message.", LogLevel.Info);
         }
 
