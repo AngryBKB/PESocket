@@ -139,6 +139,10 @@ namespace PENet {
                         SendCB,
                         ns);
                 }
+                else {
+                    ns.Close();
+                    PETool.LogMsg("NetworkStreamError: can't write data to network stream", LogLevel.Error);
+                }
             }
             catch (Exception e) {
                 PETool.LogMsg("SndMsgError:" + e.Message, LogLevel.Error);
