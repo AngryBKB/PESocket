@@ -28,7 +28,7 @@ namespace PENet {
                     0,
                     pack.headLen,
                     SocketFlags.None,
-                    new AsyncCallback(RcvHeadData),
+                    RcvHeadData,
                     pack);
             }
             catch (Exception e) {
@@ -53,7 +53,7 @@ namespace PENet {
                             pack.headIndex,
                             pack.headLen - pack.headIndex,
                             SocketFlags.None,
-                            new AsyncCallback(RcvHeadData),
+                            RcvHeadData,
                             pack);
                     }
                     else {
@@ -62,7 +62,7 @@ namespace PENet {
                             0,
                             pack.bodyLen,
                             SocketFlags.None,
-                            new AsyncCallback(RcvBodyData),
+                            RcvBodyData,
                             pack);
                     }
                 }
@@ -87,7 +87,7 @@ namespace PENet {
                             pack.bodyIndex,
                             pack.bodyLen - pack.bodyIndex,
                             SocketFlags.None,
-                            new AsyncCallback(RcvBodyData),
+                            RcvBodyData,
                             pack);
                     }
                     else {
@@ -101,7 +101,7 @@ namespace PENet {
                             0,
                             pack.headLen,
                             SocketFlags.None,
-                            new AsyncCallback(RcvHeadData),
+                            RcvHeadData,
                             pack);
                     }
                 }
@@ -137,7 +137,7 @@ namespace PENet {
                         data,
                         0,
                         data.Length,
-                        new AsyncCallback(SendCB),
+                        SendCB,
                         ns);
                 }
             }
