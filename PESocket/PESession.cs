@@ -129,9 +129,8 @@ namespace PENet {
         /// Send binary data
         /// </summary>
         public void SendMsg(byte[] data) {
-            NetworkStream ns = null;
             try {
-                ns = new NetworkStream(skt);
+                var ns = new NetworkStream(skt);
                 if (ns.CanWrite) {
                     ns.BeginWrite(
                         data,
